@@ -7,7 +7,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 /* スムーススクロール */
@@ -29,7 +29,7 @@ body {
   letter-spacing: 0.06em;
   padding-bottom: 80px;
 }
-h1, h2, h3, .japanese-font {
+h1, h2, h3, h4, .japanese-font {
   font-family: 'Shippori Mincho', serif;
 }
 a {
@@ -77,14 +77,14 @@ header {
 /* ナビゲーションボタン */
 .nav-menu {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   list-style: none;
   flex-wrap: wrap;
 }
 .nav-btn {
   background: #f4efe6;
   color: #4a423a;
-  padding: 7px 18px;
+  padding: 7px 16px;
   border-radius: 25px;
   font-size: 0.85rem;
   font-weight: 500;
@@ -110,20 +110,10 @@ header {
 /* ヒーローエリア */
 .hero {
   position: relative;
-  padding: 90px 20px 70px;
+  padding: 80px 20px 60px;
   text-align: center;
   background: radial-gradient(circle at top, #f8ede8 0%, #fcfaf7 70%);
   overflow: hidden;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 1px;
-  background-color: #c49a45;
 }
 .hero-tag {
   display: inline-block;
@@ -134,58 +124,50 @@ header {
   margin-bottom: 15px;
 }
 .hero h1 {
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #2c2825;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-weight: 600;
   line-height: 1.5;
 }
 .hero-description {
   font-size: 0.95rem;
   color: #595048;
-  max-width: 620px;
-  margin: 0 auto 40px;
+  max-width: 650px;
+  margin: 0 auto 35px;
   font-weight: 300;
 }
 
-/* ヒーロー内 クイックボタン */
+/* クイックボタン */
 .quick-nav {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 10px;
   flex-wrap: wrap;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .quick-btn {
   background: #ffffff;
   border: 1px solid #e4dcd0;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #3b332c;
   box-shadow: 0 4px 15px rgba(0,0,0,0.02);
   transition: all 0.3s ease;
-  position: relative;
-}
-.quick-btn::before {
-  content: '🌸';
-  font-size: 0.8rem;
-  margin-right: 6px;
-  opacity: 0.7;
 }
 .quick-btn:hover {
   border-color: #d48a8a;
   color: #d48a8a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 138, 138, 0.15);
 }
 
 /* コンテナ＆セクション */
 .container {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 50px 20px;
 }
 .section-target {
   scroll-margin-top: 80px;
@@ -193,7 +175,7 @@ header {
 }
 .section-title {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 .section-title .en-title {
   display: block;
@@ -219,14 +201,15 @@ header {
   margin: 10px auto 0;
 }
 
-/* カードデザイン */
+/* カード＆グリッド */
 .card {
   background: #ffffff;
   border-radius: 8px;
-  padding: 35px 30px;
+  padding: 30px;
   border: 1px solid #eee8df;
   box-shadow: 0 6px 25px rgba(44, 40, 37, 0.03);
   position: relative;
+  margin-bottom: 25px;
 }
 .card::before {
   content: '';
@@ -238,59 +221,168 @@ header {
   background: linear-gradient(180deg, #d48a8a 0%, #c49a45 100%);
   border-radius: 8px 0 0 8px;
 }
-.card h3 {
+.card-header-title {
   font-size: 1.25rem;
   color: #2c2825;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
   font-weight: 600;
-}
-.card p {
-  color: #595048;
-  font-size: 0.92rem;
+  border-bottom: 1px dashed #e8e1d5;
+  padding-bottom: 10px;
 }
 
-/* リストデザイン */
-.feature-list {
-  list-style: none;
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
   margin-top: 15px;
 }
-.feature-list li {
-  position: relative;
-  padding-left: 22px;
-  margin-bottom: 10px;
-  font-size: 0.92rem;
-  color: #4a423a;
+.lesson-item {
+  background: #faf7f2;
+  border: 1px solid #e8e2d8;
+  padding: 18px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.feature-list li::before {
-  content: '◆';
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 0.65rem;
-  color: #c49a45;
+.lesson-item h4 {
+  color: #2c3539;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+.lesson-item p {
+  font-size: 0.85rem;
+  color: #665c54;
+  margin-bottom: 10px;
+}
+.lesson-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #b86b6b;
+  border-top: 1px solid #e8e2d8;
+  padding-top: 8px;
+  margin-top: auto;
 }
 
-/* お問い合わせエリア */
+/* 料金テーブル */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e8e2d8;
+}
+.price-table th, .price-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0eae1;
+  font-size: 0.9rem;
+}
+.price-table th {
+  background-color: #f7f3eb;
+  color: #3b332c;
+  text-align: left;
+  font-weight: 600;
+}
+.price-table tr:last-child td {
+  border-bottom: none;
+}
+.price-tag {
+  color: #b86b6b;
+  font-weight: 700;
+}
+
+/* エリア・時間外料金カード */
+.sub-info-box {
+  background: #f8ede8;
+  border: 1px solid #eadad3;
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+.sub-info-box h4 {
+  font-size: 0.95rem;
+  color: #b86b6b;
+  margin-bottom: 8px;
+}
+.sub-info-box ul {
+  padding-left: 20px;
+  font-size: 0.88rem;
+  color: #595048;
+}
+
+/* お客様の声 */
+.review-card {
+  background: #fff;
+  border: 1px solid #e8e2d8;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.review-title {
+  font-weight: 600;
+  color: #d48a8a;
+  font-size: 1.05rem;
+}
+.review-user {
+  font-size: 0.8rem;
+  color: #8c827a;
+  background: #f4efe6;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+/* 注意事項・リンク */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+.link-box {
+  background: #ffffff;
+  border: 1px solid #e4dcd0;
+  padding: 14px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: #3b332c;
+  transition: all 0.3s;
+}
+.link-box:hover {
+  border-color: #d48a8a;
+  color: #d48a8a;
+  background: #fcf8f6;
+}
+
+/* お問い合わせ */
 .contact-box {
   background: linear-gradient(135deg, #2c3539 0%, #1e2528 100%);
   color: #fff;
   padding: 50px 30px;
   border-radius: 10px;
   text-align: center;
-  position: relative;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 .contact-box h2 {
   font-size: 1.6rem;
   margin-bottom: 12px;
   color: #f7eee2;
-  font-weight: 500;
 }
 .contact-box p {
   font-size: 0.9rem;
   color: #cfc7bd;
   margin-bottom: 30px;
-  font-weight: 300;
 }
 .main-contact-btn {
   display: inline-block;
@@ -309,7 +401,6 @@ header {
   box-shadow: 0 6px 25px rgba(212, 138, 138, 0.5);
 }
 
-/* フッター */
 footer {
   text-align: center;
   padding: 25px;
@@ -327,8 +418,9 @@ footer {
     <div class="logo">RIE 着物教室</div>
     <ul class="nav-menu">
       <li><a href="#profile" class="nav-btn">プロフィール</a></li>
-      <li><a href="#lesson" class="nav-btn">着付けレッスン</a></li>
+      <li><a href="#lesson" class="nav-btn">レッスン・料金</a></li>
       <li><a href="#dispatch" class="nav-btn">出張着付け</a></li>
+      <li><a href="#reviews" class="nav-btn">生徒さんの声</a></li>
       <li><a href="#contact" class="nav-btn contact-btn">お問い合わせ</a></li>
     </ul>
   </div>
@@ -339,15 +431,15 @@ footer {
   <span class="hero-tag">CHIBA / MATSUDO / ICHIKAWA / FUNABASHI</span>
   <h1>着物を纏う高揚感を、もっと身近に</h1>
   <p class="hero-description">
-    初心者の方から楽しめるプライベートレッスンから、特別な日の出張着付けまで。<br>
-    お一人おひとりの魅力を引き立てる、心やわらぐ着付けをお届けします。
+    小さなお子様がいらっしゃる方も着物をあきらめないでください♪<br>
+    七五三や入園式など特別なハレの日に、思い出に残る華やかな着物姿をご提案します。
   </p>
 
-  <!-- クイックナビゲーション -->
   <div class="quick-nav">
-    <a href="#profile" class="quick-btn">プロフィール</a>
-    <a href="#lesson" class="quick-btn">着付けレッスン案内</a>
-    <a href="#dispatch" class="quick-btn">出張着付けご案内</a>
+    <a href="#profile" class="quick-btn">🌸 プロフィール</a>
+    <a href="#lesson" class="quick-btn">👘 レッスン価格一覧</a>
+    <a href="#dispatch" class="quick-btn">🚗 出張着付け・料金</a>
+    <a href="#reviews" class="quick-btn">💬 受講生・体験の声</a>
   </div>
 </section>
 
@@ -360,58 +452,286 @@ footer {
       <h2>プロフィール</h2>
     </div>
     <div class="card">
-      <h3>着付け講師 / 着付師 RIE</h3>
+      <h3 class="card-header-title">着付け講師 / 着付師 RIE</h3>
       <p style="margin-bottom: 16px;">
         はじめまして。RIEと申します。<br>
-        「自分で綺麗に着物を着てみたい」「特別な日に美しい着姿で過ごしたい」というお客様の思いに寄り添い、丁寧で温かみのある指導と着付けをご提供しております。
+        「自分で綺麗に着物を着てみたい」「特別な日に美しい着姿で過ごしたい」というお客様のお気持ちに寄り添い、丁寧で温かみのあるレッスンと着付けサービスを提供しております。
       </p>
       <p>
-        普段使いの小紋や紬から、成人式・七五三・お宮参り・結婚式などのフォーマルな着付けまで幅広く対応。「苦しくないのに美しく、着崩れしにくい」心地よい着付けを大切にしています。
+        小さなお子様がいらっしゃるご家庭も大歓迎です。ハレの日の記念写真もぐっと華やかになり、ご家族にとって素晴らしい思い出になりますよ♪
       </p>
     </div>
   </section>
 
-  <!-- 着付けレッスンセクション -->
+  <!-- レッスンコース・料金セクション -->
   <section id="lesson" class="section-target">
     <div class="section-title">
-      <span class="en-title">Lesson</span>
-      <h2>着付けレッスン</h2>
+      <span class="en-title">Lesson & Price</span>
+      <h2>レッスンメニュー・受講料</h2>
     </div>
+
+    <!-- 単発体験レッスン -->
     <div class="card">
-      <h3>マンツーマンの個人レッスン</h3>
-      <p>ご自身のペースで周りを気にせず学べる完全マンツーマン形式です。道具の名称や畳み方からしっかり丁寧にお伝えします。</p>
-      <ul class="feature-list">
-        <li>初心者向け：着物の基本から学べる手ぶら・体験レッスン</li>
-        <li>普段着レッスン：小紋や紬で楽しむ日常のおしゃれ着付け</li>
-        <li>フォーマルレッスン：訪問着や帯結びのステップアップ</li>
-        <li>やり直し・復習レッスン：苦手なポイントを重点的にカバー</li>
-      </ul>
+      <h3 class="card-header-title">♦︎ まずはここから！体験レッスン</h3>
+      <div class="lesson-grid">
+        <div class="lesson-item" style="grid-column: 1 / -1;">
+          <h4>体験着物レッスン</h4>
+          <p>「着物を始めてみたいけれど私にできるかな…」「教室の雰囲気を見てみたい」という方向けの体験レッスンです。手ぶらで気軽にご参加いただけます。</p>
+          <div class="lesson-price">3,300円（税込） / 1回（120分）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 継続コースレッスン -->
+    <div class="card">
+      <h3 class="card-header-title">♦︎ コースレッスン（じっくり習う）</h3>
+      <div class="lesson-grid">
+        <div class="lesson-item">
+          <h4>初級着付けレッスン</h4>
+          <p>着物をゼロから自分で着られるようになる基本コース（全8回）。道具の扱いから小紋・紬の着付け・お太鼓結びまで学びます。</p>
+          <div class="lesson-price">33,000円（税込） / 全8回</div>
+        </div>
+        <div class="lesson-item">
+          <h4>フォーマル着物レッスン</h4>
+          <p>訪問着・付け下げ・留袖などの礼装着物をキレイに着こなしたい方向けのコース（全4回）。二重太鼓や補正のコツを修得します。</p>
+          <div class="lesson-price">19,800円（税込） / 全4回</div>
+        </div>
+        <div class="lesson-item">
+          <h4>中級着付けレッスン</h4>
+          <p>初級を修了された方のステップアップコース（全6回）。着姿をより美しく補正し、手際よく着る技術を身につけます。</p>
+          <div class="lesson-price">26,400円（税込） / 全6回</div>
+        </div>
+        <div class="lesson-item">
+          <h4>継続レッスン</h4>
+          <p>中級コース以上を修了された方向けの定期フォローレッスン。着崩れ防止や着付けのスピードアップを目指します。</p>
+          <div class="lesson-price">4,400円（税込） / 1回（120分）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 単発レッスン -->
+    <div class="card">
+      <h3 class="card-header-title">♦︎ 単発レッスン（ポイントで習う）</h3>
+      <div class="lesson-grid">
+        <div class="lesson-item">
+          <h4>おかわりレッスン</h4>
+          <p>初級・中級レッスン卒業生さんのための復習・おさらい単発レッスン。</p>
+          <div class="lesson-price">4,400円（税込） / 1回</div>
+        </div>
+        <div class="lesson-item">
+          <h4>1dayお悩み解消レッスン</h4>
+          <p>「衿元がうまく決まらない」「帯結びだけ復習したい」など、苦手ポイントに特化したレッスン。</p>
+          <div class="lesson-price">5,500円（税込） / 1回</div>
+        </div>
+        <div class="lesson-item">
+          <h4>1day浴衣レッスン</h4>
+          <p>夏のお出かけに向けて、自分で浴衣をスッキリ綺麗に着る単発レッスン。</p>
+          <div class="lesson-price">4,400円（税込） / 1回</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 他装着付け・プロ講座 -->
+    <div class="card">
+      <h3 class="card-header-title">♦︎ 他装着付け（人に着せる）</h3>
+      <div class="lesson-grid">
+        <div class="lesson-item">
+          <h4>人に着物を着せてみようレッスン</h4>
+          <p>お子様やご友人、ご家族に袴や着物を着せてあげたい方向けの単発レッスン。</p>
+          <div class="lesson-price">6,600円（税込） / 1回</div>
+        </div>
+        <div class="lesson-item">
+          <h4>着せ付けコース（着付師養成）</h4>
+          <p>プロの着付師としてお仕事を目指す方のための専門講座です。</p>
+          <div class="lesson-price">要お問い合わせ</div>
+        </div>
+        <div class="lesson-item" style="grid-column: 1 / -1;">
+          <h4>着物コーディネートご相談</h4>
+          <p>お手持ちの着物や帯の組み合わせ、小物合わせのお悩みなどお気軽にご相談ください。</p>
+          <div class="lesson-price">3,300円（税込）〜</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 出張着付けセクション -->
+  <!-- 出張着付け料金セクション -->
   <section id="dispatch" class="section-target">
     <div class="section-title">
-      <span class="en-title">Service</span>
-      <h2>出張着付け</h2>
+      <span class="en-title">Dispatch Price</span>
+      <h2>出張着付け 種類と料金（税込）</h2>
     </div>
+
     <div class="card">
-      <h3>ご自宅やご指定の場所へ伺います</h3>
-      <p>早朝のお支度や、小さなお子様がいらっしゃって移動が難しいご家庭に大変喜ばれております。ご家族の大切な節目の日を華やかに彩ります。</p>
-      <ul class="feature-list">
-        <li>成人式（振袖お支度）</li>
-        <li>七五三・お宮参り（訪問着・お子様のお祝い着）</li>
-        <li>卒園式・卒業式・入学式（訪問着・袴）</li>
-        <li>結婚式・ご両家顔合わせ・パーティー（留袖・訪問着）</li>
-      </ul>
+      <h3 class="card-header-title">お着物の種類と着付け料金</h3>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>お着物の種類</th>
+            <th>帯結び等</th>
+            <th>料金（税込）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>留袖</td>
+            <td>二重太鼓</td>
+            <td class="price-tag">8,800円</td>
+          </tr>
+          <tr>
+            <td>留袖</td>
+            <td>飾り結び</td>
+            <td class="price-tag">9,900円</td>
+          </tr>
+          <tr>
+            <td>振袖</td>
+            <td>飾り結び</td>
+            <td class="price-tag">13,200円</td>
+          </tr>
+          <tr>
+            <td>訪問着／付け下げ</td>
+            <td>二重太鼓</td>
+            <td class="price-tag">8,800円</td>
+          </tr>
+          <tr>
+            <td>訪問着／付け下げ</td>
+            <td>飾り結び</td>
+            <td class="price-tag">9,900円</td>
+          </tr>
+          <tr>
+            <td>普段着（小紋・紬）</td>
+            <td>一重太鼓</td>
+            <td class="price-tag">6,600円</td>
+          </tr>
+          <tr>
+            <td>普段着（小紋・紬）</td>
+            <td>飾り結び</td>
+            <td class="price-tag">7,700円</td>
+          </tr>
+          <tr>
+            <td>浴衣</td>
+            <td>-</td>
+            <td class="price-tag">4,800円</td>
+          </tr>
+          <tr>
+            <td>袴（大人）</td>
+            <td>-</td>
+            <td class="price-tag">6,600円</td>
+          </tr>
+          <tr>
+            <td>三歳女児</td>
+            <td>被布</td>
+            <td class="price-tag">3,300円</td>
+          </tr>
+          <tr>
+            <td>三歳女児</td>
+            <td>帯結び</td>
+            <td class="price-tag">6,600円</td>
+          </tr>
+          <tr>
+            <td>五歳男児</td>
+            <td>袴</td>
+            <td class="price-tag">5,500円</td>
+          </tr>
+          <tr>
+            <td>七歳女児</td>
+            <td>帯結び</td>
+            <td class="price-tag">6,600円</td>
+          </tr>
+          <tr>
+            <td>12歳以下女児</td>
+            <td>袴</td>
+            <td class="price-tag">4,800円</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 出張地域料金 -->
+      <div class="sub-info-box">
+        <h4>🚗 出張料金について</h4>
+        <ul>
+          <li><strong>松戸市内：</strong> 1,100円</li>
+          <li><strong>周辺地域（柏市、流山市、鎌ケ谷市、市川市、船橋市、三郷市）：</strong> 2,200円</li>
+          <li><strong>上記以外の地域：</strong> 3,300円</li>
+        </ul>
+      </div>
+
+      <!-- 早朝・深夜料金 -->
+      <div class="sub-info-box" style="background: #f4efe6; border-color: #e4dcd0;">
+        <h4 style="color: #3b332c;">⏰ 早朝と深夜料金</h4>
+        <ul>
+          <li>午前8〜9時、午後6〜7時の場合：別途 2,200円</li>
+          <li>午前7〜8時、午後7〜8時の場合：別途 3,300円</li>
+          <li>午前7時より前、午後8時以降の場合：別途 4,400円</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- お問い合わせセクション -->
+  <!-- 受講生・体験の声 -->
+  <section id="reviews" class="section-target">
+    <div class="section-title">
+      <span class="en-title">Voice</span>
+      <h2>生徒さんの体験・受講のご感想</h2>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="review-title">「不器用な私でも一人で着られるようになりました！」</span>
+        <span class="review-user">30代・初級レッスン受講</span>
+      </div>
+      <p style="font-size: 0.9rem; color: #595048;">
+        昔から着物に憧れはあったものの「着付けは難しそう…」と諦めていました。RIE先生のレッスンは一人ひとりのペースに合わせて無理なく進めてくださるので、毎回楽しく通うことができました！子供の卒園式に自分で着物を着て出席でき、一生の思い出になりました。
+      </p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="review-title">「体験レッスンで丁寧さと温かさに惹かれて入会しました」</span>
+        <span class="review-user">40代・体験レッスン→初級コース</span>
+      </div>
+      <p style="font-size: 0.9rem; color: #595048;">
+        まずは体験レッスンから参加したのですが、手ぶらで気軽に行けたのがありがたかったです。マンツーマンで優しく教えてくださり、教室の温かい雰囲気に感動してすぐに初級コースを申し込みました！
+      </p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="review-title">「長時間着ていても苦しくなく、キレイな着姿が続きました」</span>
+        <span class="review-user">40代・フォーマルレッスン受講</span>
+      </div>
+      <p style="font-size: 0.9rem; color: #595048;">
+        結婚式で訪問着を着たくて受講しました。自分の体型に合わせた補正のポイントや着崩れないコツを丁寧に教えていただき、当日は1日中ラクに過ごせました！「着姿がすごく綺麗」と周りからも褒められて嬉しかったです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 注意事項・各種案内リンク -->
+  <section class="section-target">
+    <div class="section-title">
+      <span class="en-title">Information</span>
+      <h2>ご利用時の注意事項・ご案内</h2>
+    </div>
+
+    <div class="card">
+      <p style="font-size: 0.88rem; color: #595048; margin-bottom: 15px;">
+        ※ヘアメイクは承っておりませんのでご自身でお済ませいただくようお願いいたします。<br>
+        ※詳細な小物や規約につきましては以下の案内ページをご確認ください。
+      </p>
+
+      <div class="links-grid">
+        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">👘 着物に必要な小物について</a>
+        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">🎗 着付けに使う紐について</a>
+        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">⚠️ 注意点・キャンセルポリシー</a>
+        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">🐾 ペットについての注意事項</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
   <section id="contact" class="section-target">
     <div class="contact-box">
       <h2>ご予約・お問い合わせ</h2>
-      <p>レッスンの詳しいお時間や出張着付けのお見積もりなど、お気軽にご連絡ください。</p>
+      <p>体験レッスンのご予約やお時間のご相談、出張着付けのお見積もりなどお気軽にご連絡ください。</p>
       <a href="mailto:kimonorie3@gmail.com" class="main-contact-btn">✉️ メールでお問い合わせ</a>
     </div>
   </section>
