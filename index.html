@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIE 着物教室 & 出張着付け | 千葉・松戸・船橋</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 基本設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: #2c2825;
+  background-color: #fcfaf7;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  padding-bottom: 80px;
+}
+h1, h2, h3, .japanese-font {
+  font-family: 'Shippori Mincho', serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ヘッダー */
+header {
+  background-color: rgba(252, 250, 247, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #eae2d5;
+  padding: 15px 24px;
+}
+.header-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.logo {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #2c3539;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #d48a8a;
+  border-radius: 50%;
+}
+
+/* ナビゲーションボタン */
+.nav-menu {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.nav-btn {
+  background: #f4efe6;
+  color: #4a423a;
+  padding: 7px 18px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #e2d7c5;
+  transition: all 0.3s ease;
+}
+.nav-btn:hover {
+  background-color: #2c3539;
+  color: #fff;
+  border-color: #2c3539;
+}
+.nav-btn.contact-btn {
+  background: linear-gradient(135deg, #d48a8a 0%, #b86b6b 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 10px rgba(212, 138, 138, 0.3);
+}
+.nav-btn.contact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(212, 138, 138, 0.4);
+}
+
+/* ヒーローエリア */
+.hero {
+  position: relative;
+  padding: 90px 20px 70px;
+  text-align: center;
+  background: radial-gradient(circle at top, #f8ede8 0%, #fcfaf7 70%);
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background-color: #c49a45;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.88rem;
+  color: #c49a45;
+  letter-spacing: 0.25em;
+  margin-bottom: 15px;
+}
+.hero h1 {
+  font-size: 2rem;
+  color: #2c2825;
+  margin-bottom: 24px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.hero-description {
+  font-size: 0.95rem;
+  color: #595048;
+  max-width: 620px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+}
+
+/* ヒーロー内 クイックボタン */
+.quick-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.quick-btn {
+  background: #ffffff;
+  border: 1px solid #e4dcd0;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #3b332c;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.quick-btn::before {
+  content: '🌸';
+  font-size: 0.8rem;
+  margin-right: 6px;
+  opacity: 0.7;
+}
+.quick-btn:hover {
+  border-color: #d48a8a;
+  color: #d48a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 138, 138, 0.15);
+}
+
+/* コンテナ＆セクション */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.section-target {
+  scroll-margin-top: 80px;
+  margin-bottom: 70px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-title .en-title {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: #c49a45;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.section-title h2 {
+  font-size: 1.6rem;
+  color: #2c2825;
+  display: inline-block;
+  font-weight: 600;
+  position: relative;
+}
+.section-title h2::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #d48a8a;
+  margin: 10px auto 0;
+}
+
+/* カードデザイン */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 35px 30px;
+  border: 1px solid #eee8df;
+  box-shadow: 0 6px 25px rgba(44, 40, 37, 0.03);
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #d48a8a 0%, #c49a45 100%);
+  border-radius: 8px 0 0 8px;
+}
+.card h3 {
+  font-size: 1.25rem;
+  color: #2c2825;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.card p {
+  color: #595048;
+  font-size: 0.92rem;
+}
+
+/* リストデザイン */
+.feature-list {
+  list-style: none;
+  margin-top: 15px;
+}
+.feature-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+  color: #4a423a;
+}
+.feature-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.65rem;
+  color: #c49a45;
+}
+
+/* お問い合わせエリア */
+.contact-box {
+  background: linear-gradient(135deg, #2c3539 0%, #1e2528 100%);
+  color: #fff;
+  padding: 50px 30px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.contact-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #f7eee2;
+  font-weight: 500;
+}
+.contact-box p {
+  font-size: 0.9rem;
+  color: #cfc7bd;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+.main-contact-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #d48a8a 0%, #b86b6b 100%);
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 20px rgba(212, 138, 138, 0.4);
+  transition: all 0.3s ease;
+}
+.main-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 138, 138, 0.5);
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #8c827a;
+  font-size: 0.8rem;
+  background: #f4efe6;
+  border-top: 1px solid #e5dcd0;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">RIE 着物教室</div>
+    <ul class="nav-menu">
+      <li><a href="#profile" class="nav-btn">プロフィール</a></li>
+      <li><a href="#lesson" class="nav-btn">着付けレッスン</a></li>
+      <li><a href="#dispatch" class="nav-btn">出張着付け</a></li>
+      <li><a href="#contact" class="nav-btn contact-btn">お問い合わせ</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ヒーローエリア -->
+<section class="hero">
+  <span class="hero-tag">CHIBA / MATSUDO / ICHIKAWA / FUNABASHI</span>
+  <h1>着物を纏う高揚感を、もっと身近に</h1>
+  <p class="hero-description">
+    初心者の方から楽しめるプライベートレッスンから、特別な日の出張着付けまで。<br>
+    お一人おひとりの魅力を引き立てる、心やわらぐ着付けをお届けします。
+  </p>
+
+  <!-- クイックナビゲーション -->
+  <div class="quick-nav">
+    <a href="#profile" class="quick-btn">プロフィール</a>
+    <a href="#lesson" class="quick-btn">着付けレッスン案内</a>
+    <a href="#dispatch" class="quick-btn">出張着付けご案内</a>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- プロフィールセクション -->
+  <section id="profile" class="section-target">
+    <div class="section-title">
+      <span class="en-title">Profile</span>
+      <h2>プロフィール</h2>
+    </div>
+    <div class="card">
+      <h3>着付け講師 / 着付師 RIE</h3>
+      <p style="margin-bottom: 16px;">
+        はじめまして。RIEと申します。<br>
+        「自分で綺麗に着物を着てみたい」「特別な日に美しい着姿で過ごしたい」というお客様の思いに寄り添い、丁寧で温かみのある指導と着付けをご提供しております。
+      </p>
+      <p>
+        普段使いの小紋や紬から、成人式・七五三・お宮参り・結婚式などのフォーマルな着付けまで幅広く対応。「苦しくないのに美しく、着崩れしにくい」心地よい着付けを大切にしています。
+      </p>
+    </div>
+  </section>
+
+  <!-- 着付けレッスンセクション -->
+  <section id="lesson" class="section-target">
+    <div class="section-title">
+      <span class="en-title">Lesson</span>
+      <h2>着付けレッスン</h2>
+    </div>
+    <div class="card">
+      <h3>マンツーマンの個人レッスン</h3>
+      <p>ご自身のペースで周りを気にせず学べる完全マンツーマン形式です。道具の名称や畳み方からしっかり丁寧にお伝えします。</p>
+      <ul class="feature-list">
+        <li>初心者向け：着物の基本から学べる手ぶら・体験レッスン</li>
+        <li>普段着レッスン：小紋や紬で楽しむ日常のおしゃれ着付け</li>
+        <li>フォーマルレッスン：訪問着や帯結びのステップアップ</li>
+        <li>やり直し・復習レッスン：苦手なポイントを重点的にカバー</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 出張着付けセクション -->
+  <section id="dispatch" class="section-target">
+    <div class="section-title">
+      <span class="en-title">Service</span>
+      <h2>出張着付け</h2>
+    </div>
+    <div class="card">
+      <h3>ご自宅やご指定の場所へ伺います</h3>
+      <p>早朝のお支度や、小さなお子様がいらっしゃって移動が難しいご家庭に大変喜ばれております。ご家族の大切な節目の日を華やかに彩ります。</p>
+      <ul class="feature-list">
+        <li>成人式（振袖お支度）</li>
+        <li>七五三・お宮参り（訪問着・お子様のお祝い着）</li>
+        <li>卒園式・卒業式・入学式（訪問着・袴）</li>
+        <li>結婚式・ご両家顔合わせ・パーティー（留袖・訪問着）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- お問い合わせセクション -->
+  <section id="contact" class="section-target">
+    <div class="contact-box">
+      <h2>ご予約・お問い合わせ</h2>
+      <p>レッスンの詳しいお時間や出張着付けのお見積もりなど、お気軽にご連絡ください。</p>
+      <a href="mailto:kimonorie3@gmail.com" class="main-contact-btn">✉️ メールでお問い合わせ</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; RIE 着物教室 All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
