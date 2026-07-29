@@ -342,30 +342,81 @@ header {
   border-radius: 12px;
 }
 
-/* 注意事項・リンク */
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-top: 15px;
-}
-.link-box {
-  background: #ffffff;
+/* キャンセルポリシー・小物案内用スタイル */
+.policy-box {
+  background: #faf7f2;
   border: 1px solid #e4dcd0;
-  padding: 14px;
+  padding: 20px;
   border-radius: 6px;
-  text-align: center;
-  font-size: 0.88rem;
-  color: #3b332c;
-  transition: all 0.3s;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #4a423a;
 }
-.link-box:hover {
-  border-color: #d48a8a;
-  color: #d48a8a;
-  background: #fcf8f6;
+.policy-box ol {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.policy-box li {
+  line-height: 1.7;
+}
+.policy-sub-title {
+  font-weight: 600;
+  color: #2c3539;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.memo-text {
+  background: #fff;
+  border-left: 3px solid #d48a8a;
+  padding: 12px 15px;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  color: #595048;
 }
 
-/* お問い合わせ */
+/* タブ切り替えボタンエリア */
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+.tab-btn {
+  background: #f4efe6;
+  border: 1px solid #e2d7c5;
+  color: #4a423a;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tab-btn:hover {
+  background-color: #2c3539;
+  color: #fff;
+  border-color: #2c3539;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, #d48a8a 0%, #b86b6b 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(212, 138, 138, 0.3);
+}
+
+/* タブコンテンツの表示・非表示 */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* お問い合わせ（フォームメーラー形式） */
 .contact-box {
   background: linear-gradient(135deg, #2c3539 0%, #1e2528 100%);
   color: #fff;
@@ -421,6 +472,7 @@ footer {
       <li><a href="#lesson" class="nav-btn">レッスン・料金</a></li>
       <li><a href="#dispatch" class="nav-btn">出張着付け</a></li>
       <li><a href="#reviews" class="nav-btn">生徒さんの声</a></li>
+      <li><a href="#policy" class="nav-btn">各種ご案内</a></li>
       <li><a href="#contact" class="nav-btn contact-btn">お問い合わせ</a></li>
     </ul>
   </div>
@@ -439,7 +491,7 @@ footer {
     <a href="#profile" class="quick-btn">🌸 プロフィール</a>
     <a href="#lesson" class="quick-btn">👘 レッスン価格一覧</a>
     <a href="#dispatch" class="quick-btn">🚗 出張着付け・料金</a>
-    <a href="#reviews" class="quick-btn">💬 受講生・体験の声</a>
+    <a href="#policy" class="quick-btn">⚠️ 各種ご案内・注意事項</a>
   </div>
 </section>
 
@@ -537,7 +589,7 @@ footer {
       <div class="lesson-grid">
         <div class="lesson-item">
           <h4>人に着物を着せてみようレッスン</h4>
-          <p>お子様やご友人、ご家族に袴や着物を着せてあげたい方向けの単発レッスン。</p>
+          <p>お子様やご友人、ご家族に袴や着物着せてあげたい方向けの単発レッスン。</p>
           <div class="lesson-price">6,600円（税込） / 1回</div>
         </div>
         <div class="lesson-item">
@@ -705,26 +757,99 @@ footer {
     </div>
   </section>
 
-  <!-- 注意事項・各種案内リンク -->
-  <section class="section-target">
+  <!-- 各種ご案内セクション（タブ切り替え） -->
+  <section id="policy" class="section-target">
     <div class="section-title">
       <span class="en-title">Information</span>
-      <h2>ご利用時の注意事項・ご案内</h2>
+      <h2>各種ご案内・注意事項</h2>
     </div>
 
-    <div class="card">
-      <p style="font-size: 0.88rem; color: #595048; margin-bottom: 15px;">
-        ※ヘアメイクは承っておりませんのでご自身でお済ませいただくようお願いいたします。<br>
-        ※詳細な小物や規約につきましては以下の案内ページをご確認ください。
-      </p>
+    <!-- 切り替えボタン群 -->
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="switchTab('items')">👘 必要な小物について</button>
+      <button class="tab-btn" onclick="switchTab('string')">🎗 着付けに使う紐について</button>
+      <button class="tab-btn" onclick="switchTab('policy-rules')">⚠️ 注意点・キャンセルポリシー</button>
+      <button class="tab-btn" onclick="switchTab('pet')">🐾 ペットについての注意事項</button>
+    </div>
 
-      <div class="links-grid">
-        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">👘 着物に必要な小物について</a>
-        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">🎗 着付けに使う紐について</a>
-        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">⚠️ 注意点・キャンセルポリシー</a>
-        <a href="https://ameblo.jp/choco-nico3/entry-12573047533.html?frm=theme" target="_blank" class="link-box">🐾 ペットについての注意事項</a>
+    <!-- ① 着物に必要な小物について -->
+    <div id="tab-items" class="tab-content active">
+      <div class="card">
+        <h3 class="card-header-title">【必要な小物リスト】</h3>
+        
+        <p class="policy-sub-title">♦︎ 着物セット</p>
+        <div class="memo-text">
+          タオル 2〜3枚、足袋、肌襦袢、裾除け、長襦袢（半衿付き）、着物、腰紐 4本、伊達締め 2本、衿芯
+        </div>
+        <p style="font-size: 0.85rem; color: #665c54; margin-bottom: 15px;">
+          💡 ご自宅にある補正パッドや、着物下着、コーリンベルト、ユナベルトがあればお持ちください。キャミソールやレギンス、ステテコ、靴下でも代用可です。
+        </p>
+
+        <p class="policy-sub-title">♦︎ 帯セット</p>
+        <div class="memo-text">
+          帯板、帯、帯枕、帯揚げ、仮紐、帯締め
+        </div>
+        <p style="font-size: 0.85rem; color: #665c54; margin-bottom: 20px;">
+          💡 紐無しの帯板でも可能です。
+        </p>
       </div>
     </div>
+
+    <!-- ② 着付けに使う紐について -->
+    <div id="tab-string" class="tab-content">
+      <div class="card">
+        <h3 class="card-header-title">【着付けに使う紐・小物に関するこだわり】</h3>
+        <div style="background: #f8ede8; border: 1px solid #eadad3; padding: 20px; border-radius: 6px;">
+          <p style="font-size: 0.88rem; color: #595048; line-height: 1.8;">
+            私は着物には<strong>ゴム製の腰紐と留め具のついた伊達締め</strong>を使っています。この２つの強力タッグで着崩れ知らず、着心地楽チンです！もちろん、モスリンの腰紐&伊達締めタッグでも大丈夫ですよ🙆‍♀️<br><br>
+            着物には様々な便利グッズがあるので、色々試してみても楽しいです。<br>
+            初回レッスンでは、着物はもちろん、小物もレンタル代はかかりません。おうちやご実家にある着物小物を持ってきていただき、小物についてもご相談に応じます。<br>
+            当教室でも小物はお売りできますが、押し売りはしません。ネットショップや、着物小物のお得な情報もお伝えします。着物を楽しんでもらいたいので、なるべくお得に小物は揃えられるといいな、と思います。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ 注意点・キャンセルポリシー -->
+    <div id="tab-policy-rules" class="tab-content">
+      <div class="card">
+        <h3 class="card-header-title">【着付師による着付け・出張着付け ご利用規約】</h3>
+        <div class="policy-box">
+          <ol>
+            <li><strong>持ち物確認：</strong>持ち物確認の為、前日までにお持ち込み、またはご訪問させていただいています。どうしても無理な方は、写メにて持ち物確認させていただきます。</li>
+            <li><strong>コーディネート：</strong>当日のコーディネート相談は無料で行います。</li>
+            <li><strong>ヘアメイク：</strong>当日は、ご自身でヘアセットとメイクをお願いします。ヘアセットもご希望の方は、新松戸駅徒歩1分 <a href="https://beauty.hotpepper.jp/" target="_blank" style="color: #d48a8a; text-decoration: underline;">nico HAIR</a> へお問い合わせください。</li>
+            <li><strong>半襟付け：</strong>当日の半襟付け、半襟がない場合は別途半襟付け代金（2,000円）が発生します。当日半襟付けには時間が掛かるので、忘れずにご用意ください。</li>
+            <li><strong>事前準備：</strong>肩揚げ、腰揚げ、しつけ取り、アイロン掛けが必要な場合は予めご自身でお願いします。</li>
+            <li><strong>変更・キャンセル：</strong>ご変更やキャンセルは前日までにお願いします。それ以降はキャンセル料が発生します。<br>
+              ※早朝料金、出張費以外の料金に対して<br>
+              ・前日：50％<br>
+              ・当日：100％<br>
+              振込先をご連絡させていただきます（恐れ入りますが振込手数料はご負担願います）。</li>
+            <li><strong>交通機関の遅れ等：</strong>交通機関の遅れなど、やむを得ない事情でお約束の時間に間に合わない場合があります。細心の注意を払っても避けられない場合は、仕上がり時間に間に合わない、または、伺えない場合があります。その際料金は頂きませんが、それ以上の補償は致しかねますことをご承知おきください。万が一に備えてお洋服の準備もお勧めします。</li>
+            <li><strong>お支払い：</strong>料金は当日全額現金でお支払いください。</li>
+            <li><strong>事前打ち合わせ：</strong>事前打ち合わせ（メール・LINE）は可能です。</li>
+            <li><strong>免責事項：</strong>アンティーク物や年代物のお召し物は、素材に経年の劣化が出る場合があります。細心の注意を払っていても破損する場合があります。その場合、こちらでは補償しかねます。貴重品は自己管理をお願いします。盗難、その他の事故については責任を負いかねます。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ ペットについての注意事項 -->
+    <div id="tab-pet" class="tab-content">
+      <div class="card">
+        <h3 class="card-header-title">🐾 ペットについての注意事項</h3>
+        <div style="background: #faf7f2; border: 1px solid #e4dcd0; padding: 20px; border-radius: 6px;">
+          <p style="font-size: 0.88rem; color: #595048; line-height: 1.9;">
+            我が家ではペットの犬を1匹飼っています。（以前うちにホームステイしていた、アメリカ人のReneeと。）<br><br>
+            着物教室は、犬を飼っている部屋とは違う階にありますので、犬がレッスン中に入ってくることはありません。<br><br>
+            ご希望の方には、レッスンの後に犬との触れ合いタイムを設けることも可能です♪<br><br>
+            ただし、重篤な動物アレルギーの方は、ご相談させていただきますので、レッスン前に遠慮なくお申し付けください。
+          </p>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- お問い合わせ -->
@@ -732,7 +857,7 @@ footer {
     <div class="contact-box">
       <h2>ご予約・お問い合わせ</h2>
       <p>体験レッスンのご予約やお時間のご相談、出張着付けのお見積もりなどお気軽にご連絡ください。</p>
-      <a href="mailto:kimonorie3@gmail.com" class="main-contact-btn">✉️ メールでお問い合わせ</a>
+      <a href="https://ssl.form-mailer.jp/fms/b4a3e876519419" target="_blank" rel="noopener noreferrer" class="main-contact-btn">📝 お申し込みフォームへ進む</a>
     </div>
   </section>
 
@@ -741,6 +866,23 @@ footer {
 <footer>
   <p>&copy; RIE 着物教室 All Rights Reserved.</p>
 </footer>
+
+<!-- タブ切り替え用のJavaScript -->
+<script>
+  function switchTab(tabId) {
+    // すべてのタブボタンの active を外す
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // すべてのタブコンテンツを非表示にする
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // 押されたボタンに対応するタブコンテンツを表示し、ボタンをアクティブにする
+    document.getElementById('tab-' + tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
